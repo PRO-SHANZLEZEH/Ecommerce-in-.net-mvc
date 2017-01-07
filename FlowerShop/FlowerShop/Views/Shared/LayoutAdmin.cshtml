@@ -1,0 +1,89 @@
+﻿
+@using FlowerShop.Repository;
+@using FlowerShop.Models;
+
+@{
+    ICategoryRepository iCategoryRepository = new CategoryRepository();
+}
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/User/css/style.css" />
+    @RenderSection("head", false)
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="header">
+            <div class="logo"><a href="@Url.Action("Index", "Home")"><img src="~/Content/User/images/logo.gif" alt="" border="0" /></a></div>
+            <div id="menu">
+                <ul>
+                    <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Index") && ViewContext.RouteData.Values["controller"].ToString().Equals("Home") ? "calss=nav_selected" : "")>
+                        <a href="@Url.Action("Index", "Home")">home</a>
+                    </li>
+                    <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Index") && ViewContext.RouteData.Values["controller"].ToString().Equals("AboutUs") ? "calss=nav_selected" : "")>
+                        <a href="@Url.Action("Index","AboutUs")">about us</a>
+                    </li>
+                   
+                    <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Specials") && ViewContext.RouteData.Values["controller"].ToString().Equals("Product") ? "calss=nav_selected" : "")>
+                        <a href="@Url.Action("Specials","Product")">specials gifts</a>
+                    </li>
+                    <li @(ViewContext.RouteData.Values["action"].ToString().Equals("MyAccount") && ViewContext.RouteData.Values["controller"].ToString().Equals("Account") ? "calss=nav_selected" : "")>
+                        <a href="@Url.Action("MyAccount","Account")">my accout</a>
+                    </li>
+                    <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Register") && ViewContext.RouteData.Values["controller"].ToString().Equals("Account") ? "calss=nav_selected" : "")>
+                        <a href="@Url.Action("Register","Account")">register</a>
+                    </li>
+                    <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Details") && ViewContext.RouteData.Values["controller"].ToString().Equals("Product") ? "calss=nav_selected" : "")>
+                        <a href="@Url.Action("Details","Product")">prices</a>
+                    </li>
+                    <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Index") && ViewContext.RouteData.Values["controller"].ToString().Equals("ContactUs") ? "calss=nav_selected" : "")>
+                        <a href="@Url.Action("Index","ContactUs")">contact</a>
+                    </li>
+                    <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Index") && ViewContext.RouteData.Values["controller"].ToString().Equals("Products") ? "calss=nav_selected" : "")>
+                        <a href="@Url.Action("Index", "Products")">Prod-Admin</a>
+                    </li>
+                    <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Index") && ViewContext.RouteData.Values["controller"].ToString().Equals("Categories") ? "calss=nav_selected" : "")>
+                        <a href="@Url.Action("Index", "Categories")">Cat-Admin</a>
+                    </li>
+                </ul>
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="center_content">
+            <div class="left_content">
+
+                @RenderBody()
+
+            </div>
+            <!--end of left content-->
+            
+            <!--end of right content-->
+            <div class="clear"></div>
+        </div>
+        <!--end of center content-->
+        <div class="footer">
+            <div class="left_footer">
+                <img src="~/Content/User/images/footer_logo.gif" alt="" /><br />
+                <a href="http://csscreme.com"><img src="~/Content/User/images/csscreme.gif" alt="" border="0" /></a>
+            </div>
+            <div class="right_footer"> <a href="#">Developed by</a> <a href="#">Ahmed shanzlezeh</a>  </div>
+        </div>
+    </div>
+
+</body>
+</html>
